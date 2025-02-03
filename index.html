@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organizing Calculator</title>
+  <link rel="stylesheet" href="style.css">  <!-- Ensure this file is present -->
+</head>
+<body>
+  <h1>Welcome to the Organizing Calculator</h1>
+
+  <div id="calculator">
+    <form id="calculator-form">
+      <label for="peopleNeeded">People Needed:</label>
+      <input type="number" id="peopleNeeded" placeholder="e.g. 10" required>
+
+      <label for="contactRate">Contact Rate (as a decimal):</label>
+      <input type="number" id="contactRate" step="0.01" min="0" max="1" placeholder="e.g. 0.1" required>
+
+      <label for="flakeFactor">Flake Factor (as a decimal):</label>
+      <input type="number" id="flakeFactor" step="0.01" min="0" max="1" placeholder="e.g. 0.5" required>
+
+      <button type="submit">Calculate</button>
+    </form>
+
+    <p id="result"></p>
+  </div>
+
+  <script src="app.js"></script>  <!-- Ensure this file is linked properly -->
+</body>
+</html>
