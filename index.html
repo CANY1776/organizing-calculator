@@ -4,28 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Organizing Calculator</title>
-  <link rel="stylesheet" href="style.css">  <!-- Ensure this file is present -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Welcome to the Organizing Calculator</h1>
+  <div class="container">
+    <h1>Organizing Calculator</h1>
+    <p>Follow the steps below to plan your outreach efforts.</p>
 
-  <div id="calculator">
-    <form id="calculator-form">
-      <label for="peopleNeeded">People Needed:</label>
-      <input type="number" id="peopleNeeded" placeholder="e.g. 10" required>
+    <!-- Step 1: People Needed -->
+    <div id="step1" class="step">
+      <h2>Step 1: How many people do you need?</h2>
+      <input type="number" id="peopleNeeded" placeholder="e.g., 50" min="1" required>
+      <button onclick="nextStep('step2')">Next</button>
+    </div>
 
-      <label for="contactRate">Contact Rate (as a decimal):</label>
-      <input type="number" id="contactRate" step="0.01" min="0" max="1" placeholder="e.g. 0.1" required>
+    <!-- Step 2: Tactic Selection -->
+    <div id="step2" class="step" style="display: none;">
+      <h2>Step 2: Choose your outreach tactic</h2>
+      <select id="tactic">
+        <option value="phonebank">Phonebanking (8% contact rate)</option>
+        <option value="canvassing">Canvassing (15% contact rate)</option>
+      </select>
+      <button onclick="nextStep('step3')">Next</button>
+    </div>
 
-      <label for="flakeFactor">Flake Factor (as a decimal):</label>
-      <input type="number" id="flakeFactor" step="0.01" min="0" max="1" placeholder="e.g. 0.5" required>
+    <!-- Step 3: Flake Factor -->
+    <div id="step3" class="step" style="display: none;">
+      <h2>Step 3: What’s your flake factor?</h2>
+      <p>This is the percentage of people who say they’ll come but don’t show up.</p>
+      <input type="number" id="flakeFactor" placeholder="e.g., 0.5 for 50%" step="0.1" min="0" max="1" required>
+      <button onclick="calculate()">Calculate</button>
+    </div>
 
-      <button type="submit">Calculate</button>
-    </form>
-
-    <p id="result"></p>
+    <!-- Results -->
+    <div id="results" class="step" style="display: none;">
+      <h2>Your Organizing Plan</h2>
+      <p id="resultText"></p>
+      <button onclick="resetForm()">Start Over</button>
+    </div>
   </div>
 
-  <script src="app.js"></script>  <!-- Ensure this file is linked properly -->
+  <script src="app.js"></script>
 </body>
 </html>
